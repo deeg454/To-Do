@@ -1,0 +1,84 @@
+    body{
+        background-image: linear-gradient(to right, hsl(150, 2%, 16%), hsl(150, 10%, 12%));
+        display: flex;
+        justify-content: center;
+    }
+
+    .to-do-list{
+        background-color:hsl(154, 9%, 16%);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: auto;
+        padding: 20px 30px;
+    }
+    h1{
+        font-size: 4rem;
+        text-align: center;
+        color: white;
+    }
+    
+     ol{
+        padding: 0;
+        list-style-type: none;
+    }
+    button{
+        font-size: 1.7rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.5 ease;
+        margin: 5px;
+        color: black;
+        text-align: center;
+    }
+    
+    .add-button{
+        background-color: rgb(84, 185, 199);
+        color: rgb(255, 255, 255);
+    }
+    .add-button:hover{
+        background-color: rgb(123, 174, 180);
+    }
+    .move-button{
+        background-color: rgb(49, 111, 206);
+    }
+   
+    .move-button:hover{
+        background-color: rgb(45, 102, 187);
+    }
+    input[type="text"]{
+        border-radius: 10px;
+        border: 3px solid rgb(14, 10, 10);
+        size: 100%;
+        font-size: 1.6rem;
+        padding: 10px;
+        background-color:hsl(150, 1%, 35%);
+        color: aliceblue;
+    }
+
+    li{
+        margin-bottom: 10px;
+        font-size: 2rem;
+        font-weight: bold;
+        padding:  10px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        border: 3px solid hsla(0, 0%, 0%, 0.459);
+    }
+    .text{
+        flex: 1;
+        color: white;
+    }
+    .move-button,.complete-button{
+        padding: 8px 12px;
+        font-size: 1.4rem;
+        margin-left: 10px;
+    }
