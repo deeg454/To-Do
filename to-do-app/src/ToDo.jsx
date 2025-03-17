@@ -8,7 +8,11 @@
         function inputChange(event){
             setNewChore(event.target.value)
           }
-
+          function handleKeyPress(e){
+            if(e.key === 'Enter'){
+                addChore();
+            }
+          }
         function moveChoreUp(index){
             if(index > 0){
                 const newChores = [...chores];
@@ -45,7 +49,8 @@
                 type="text"
                 placeholder="Enter your next task.."
                 value={newChore}
-                onChange={inputChange}/>
+                onChange={inputChange}
+                onKeyDown={handleKeyPress}/>
                 <button
                     className='add-button'
                     onClick={addChore}>
