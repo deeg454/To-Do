@@ -1,10 +1,19 @@
-    import React, { useState } from 'react';
+    import React, { useState, useEffect } from 'react';
 
     function ToDo(){
 
         const[chores, setChores] = useState([]);
         const [newChore,setNewChore] = useState("");
 
+        useEffect ( () => {const savedChores = localStorage.getItem('chores');
+            if(savedChores){
+                setChores(JSON.parse(savedChores));
+            }
+        },[]);
+
+
+
+        
         function inputChange(event){
             setNewChore(event.target.value)
           }
@@ -18,6 +27,7 @@
                 const newChores = [...chores];
                 [newChores[index], newChores[ index - 1]] = [newChores[index - 1], newChores[index]];
                 setChores(newChores);
+                localStorage.setItem('chores', JSON.stringify(newChores));
             }
         }
 
@@ -26,16 +36,20 @@
                 const newChores = [...chores];
                 [newChores[index], newChores[index + 1]] = [newChores[index + 1], newChores[index]];
                 setChores(newChores);
+                localStorage.setItem('chores', JSON.stringify(newChores));
             }
         }
 
         function deleteChore(index){
             const newChores = chores.filter ((chore,i) => i != index);
             setChores(newChores);
+            localStorage.setItem('chores', JSON.stringify(newChores));
         }
         function addChore(){
             if(newChore.trim() != ""){
-                setChores([...chores,newChore]);
+                const updatedChores = [...chores,newChore];
+                setChores(updatedChores);
+                localStorage.setItem('chores', JSON.stringify(updatedChores));
             }
             setNewChore("");
         }
