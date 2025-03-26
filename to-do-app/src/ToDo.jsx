@@ -1,9 +1,23 @@
-    import React, { useState } from 'react';
+    import React, { useEffect, useState } from 'react';
 
     function ToDo(){
 
         const[chores, setChores] = useState([]);
         const [newChore,setNewChore] = useState("");
+
+        useEffect(() => {
+            const savedChores = localStorage.getItem('chores');
+            if (savedChores) {
+              setChores(JSON.parse(savedChores));  // Parse chores from localStorage and set it to state
+            }
+          }, []);
+          
+        useEffect (() =>{
+            if(chores.length > 0){
+            localStorage.setItem('chores',JSON.stringify(chores));
+            }
+        },[chores]);
+
 
         function inputChange(event){
             setNewChore(event.target.value)
